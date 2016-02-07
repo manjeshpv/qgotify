@@ -13,8 +13,8 @@ func main() {
 	fmt.Printf("Running at %v\n", port)
 
 	r := httprouter.New()
-
+	fmt.Println("main")
 	routes.Init(r)
 
-	http.ListenAndServe(port, r)
+	panic(http.ListenAndServe(port, r))
 }

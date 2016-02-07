@@ -2,7 +2,7 @@ package tododao
 
 import (
 	"errors"
-	todo "github.com/manjeshpv/qgotify/api/todo/model"
+	todo "github.com/manjeshpv/qgotify/server/api/todo/model"
 	"github.com/manjeshpv/qgotify/server/config"
 	"gopkg.in/mgo.v2/bson"
 	"time"

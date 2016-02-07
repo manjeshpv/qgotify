@@ -7,14 +7,19 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"io/ioutil"
 	"net/http"
+	"fmt"
 )
 
 func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	ts, err := tododao.All()
 
+	fmt.Println("getall")
+	ts, err := tododao.All()
+	fmt.Println("ts",ts)
 	w.Header().Set("Content-Type", "application/json")
 
+
 	if err != nil {
+		fmt.Println(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -22,6 +27,7 @@ func GetAll(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	tsm, err := json.Marshal(ts)
 
 	if err != nil {
+		fmt.Println(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
